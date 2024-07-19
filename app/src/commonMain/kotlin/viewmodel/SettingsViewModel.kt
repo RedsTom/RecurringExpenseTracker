@@ -5,12 +5,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
+import data.AboutPane
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import model.Currency
 import model.CurrencyProvider
 import model.database.UserPreferencesRepository
+import ui.AboutScreen
 
 class SettingsViewModel(
     private val currencyProvider: CurrencyProvider,

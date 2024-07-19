@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import data.AboutPane
 import data.EditExpensePane
 import data.EditExpensePane.Companion.getArgExpenseId
 import data.HomePane
@@ -89,6 +90,11 @@ fun MainContent(
                     onCheckedChange = onBiometricSecurityChange,
                     canUseBiometric = canUseBiometric,
                     navController = navController,
+                )
+            }
+            composable(AboutPane.ROUTE) {
+                AboutScreen(
+                    navController = navController
                 )
             }
             composable(

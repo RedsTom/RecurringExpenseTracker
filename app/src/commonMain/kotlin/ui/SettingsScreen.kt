@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Backup
 import androidx.compose.material.icons.rounded.CurrencyExchange
 import androidx.compose.material.icons.rounded.Fingerprint
+import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Restore
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -41,6 +42,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import data.AboutPane
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -49,6 +51,8 @@ import org.jetbrains.compose.ui.tooling.preview.PreviewParameterProvider
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 import recurringexpensetracker.app.generated.resources.Res
+import recurringexpensetracker.app.generated.resources.settings_about
+import recurringexpensetracker.app.generated.resources.settings_about_app
 import recurringexpensetracker.app.generated.resources.settings_backup
 import recurringexpensetracker.app.generated.resources.settings_backup_create
 import recurringexpensetracker.app.generated.resources.settings_backup_restore
@@ -126,6 +130,16 @@ fun SettingsScreen(
                     title = stringResource(Res.string.settings_backup_restore),
                     onClick = onClickRestore,
                     icon = Icons.Rounded.Restore,
+                )
+                SettingsHeaderElement(
+                    header = Res.string.settings_about
+                )
+                SettingsClickableElement(
+                    title = stringResource(Res.string.settings_about_app),
+                    onClick = {
+                        navController.navigate(AboutPane.ROUTE)
+                    },
+                    icon = Icons.Rounded.Info
                 )
             }
             if (viewModel.showCurrencySelectionDialog) {
